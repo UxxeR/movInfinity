@@ -1,3 +1,4 @@
+import { IMovieDetails } from './IMovieDetails.interface';
 import { Injectable } from '@angular/core';
 import { concat, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -16,11 +17,13 @@ export class MovieInformationService {
 
   findMovieByName(title: string) {
     let _movieUrl: string = `${this._url}&s=${encodeURI(title)}`;
-    return this.http.get(_movieUrl).pipe(map((results) => results['Search']));
+    return this.http
+      .get<IMovieDetails[]>(_movieUrl)
+      .pipe(map((result) => result['Search']));
   }
 
   getMovieDetails(id: string) {
     let _movieDetailsUrl: string = `${this._url}&i=${id}`;
-    return this.http.get(_movieDetailsUrl);
+    return this.http.get<IMovieDetails[]>(_movieDetailsUrl);
   }
 }
