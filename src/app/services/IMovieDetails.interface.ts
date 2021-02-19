@@ -1,6 +1,7 @@
 export interface IMovieDetails {
-    Title: string;
-    Released: string;
-    Languange: string;
-    Plot: string;
+    imdbID: string;
+    Title?: string;
+    Released?: string;
+    Language?: string;
+    Plot?: string;
 }

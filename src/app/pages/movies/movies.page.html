@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>movies</ion-title>
+    <ion-title>Movies</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -9,9 +9,13 @@
     [(ngModel)]="movieName"
     (ionChange)="searchChanged()"
   ></ion-searchbar>
-  <ion-list>
-    <ion-item button *ngFor="let movie of (result | async)">
-      <ion-text> <h1>{{movie.Title}}</h1> </ion-text>
+  <ion-list *ngIf="loading == false">
+    <ion-item
+      button
+      *ngFor="let movie of result"
+      [routerLink]="['', 'movie-details', movie.imdbID]"
+    >
+      <ion-label> {{movie.Title}} </ion-label>
     </ion-item>
   </ion-list>
 </ion-content>
