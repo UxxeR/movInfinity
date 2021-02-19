@@ -8,22 +8,25 @@
 </ion-header>
 
 <ion-content>
-  <ion-list *ngIf="loading == false">
+  <ion-item *ngIf="loading">
+    <ion-label>Loading...</ion-label>
+  </ion-item>
+  <ion-list *ngIf="!loading">
     <ion-item>
-      <ion-label>Title:</ion-label>
-      <ion-label>{{movieDetails.Title}}</ion-label>
+      <ion-label class="text">Title:</ion-label>
+      <ion-label class="details">{{movieDetails.Title}}</ion-label>
     </ion-item>
     <ion-item>
-      <ion-label>Plot:</ion-label>
-      <ion-label>{{movieDetails.Plot}}</ion-label>
+      <ion-label class="text">Plot:</ion-label>
+      <ion-label class="details">{{movieDetails.Plot}}</ion-label>
     </ion-item>
     <ion-item>
-      <ion-label>Language:</ion-label>
-      <ion-label>{{movieDetails.Language}}</ion-label>
+      <ion-label class="text">Language:</ion-label>
+      <ion-label class="details">{{movieDetails.Language}}</ion-label>
     </ion-item>
     <ion-item>
-      <ion-label>Released:</ion-label>
-      <ion-label>{{movieDetails.Released}}</ion-label>
+      <ion-label class="text">Released:</ion-label>
+      <ion-label class="details">{{movieDetails.Released}}</ion-label>
     </ion-item>
   </ion-list>
 </ion-content>
