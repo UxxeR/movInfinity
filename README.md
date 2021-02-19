@@ -1,1 +1,2 @@
-# moviefinder
+# movInfinity
+MovInfinity uses OMDBAPI.
