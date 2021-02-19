@@ -8,7 +8,7 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'movie-details/:imdbID',
+    path: 'movies/:imdbID',
     loadChildren: () =>
       import('./pages/movie-details/movie-details.module').then(
         (m) => m.MovieDetailsPageModule

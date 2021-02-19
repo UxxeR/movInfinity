@@ -25,9 +25,13 @@ export class MovieDetailsPage implements OnInit {
   private getDetails() {
     this.movies
       .getMovieDetails(this.route.snapshot.paramMap.get('imdbID'))
-      .subscribe((data) => {
-        this.movieDetails = data;
-        this.loading = false;
-      });
+      .subscribe(
+        (data) => {
+          this.loading = true;
+          this.movieDetails = data;
+          this.loading = false;
+        },
+        (error) => console.log(error)
+      );
   }
 }

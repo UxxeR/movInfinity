@@ -11,18 +11,20 @@ import { Observable } from 'rxjs';
 export class MoviesPage implements OnInit {
   public result: IMovieDetails[];
   public movieName: string = '';
-  public loading: boolean = true;
+  public loading: boolean = false;
 
   constructor(private movies: MovieInformationService) {}
 
   ngOnInit() {}
 
   searchChanged() {
-    this.movies
-      .findMovieByName(this.movieName)
-      .subscribe((data: IMovieDetails[]) => {
+    this.movies.findMovieByName(this.movieName).subscribe(
+      (data) => {
+        this.loading = true;
         this.result = data;
         this.loading = false;
-      });
+      },
+      (error) => console.log(error)
+    );
   }
 }
