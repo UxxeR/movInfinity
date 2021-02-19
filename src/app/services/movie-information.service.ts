@@ -9,7 +9,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 })
 export class MovieInformationService {
   private _apiKey: string = '21ff6dfb';
-  private _url: string = `http://www.omdbapi.com/?apikey=${this._apiKey}&type=movie`;
+  private _url: string = `http://www.omdbapi.com/?apikey=${this._apiKey}&type=movie&plot=full`;
 
   constructor(private http: HttpClient) {}
 
