@@ -9,14 +9,20 @@ import { Observable } from 'rxjs';
   styleUrls: ['./movies.page.scss'],
 })
 export class MoviesPage implements OnInit {
-  public result: Observable<IMovieDetails[]>;
+  public result: IMovieDetails[];
   public movieName: string = '';
+  public loading: boolean = false;
 
   constructor(private movies: MovieInformationService) {}
 
   ngOnInit() {}
 
   searchChanged() {
-    this.result = this.movies.findMovieByName(this.movieName);
+    this.movies
+      .findMovieByName(this.movieName)
+      .subscribe((data: IMovieDetails[]) => {
+        this.result = data;
+        this.loading = false;
+      });
   }
 }
