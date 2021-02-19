@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 export class MoviesPage implements OnInit {
   public result: IMovieDetails[];
   public movieName: string = '';
-  public loading: boolean = false;
+  public loading: boolean = true;
 
   constructor(private movies: MovieInformationService) {}
 

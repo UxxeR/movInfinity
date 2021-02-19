@@ -9,13 +9,13 @@
     [(ngModel)]="movieName"
     (ionChange)="searchChanged()"
   ></ion-searchbar>
-  <ion-list>
+  <ion-list *ngIf="loading == false">
     <ion-item
       button
       *ngFor="let movie of result"
       [routerLink]="['', 'movie-details', movie.imdbID]"
     >
-      <ion-text> <h1>{{movie.Title}}</h1> </ion-text>
+      <ion-label> {{movie.Title}} </ion-label>
     </ion-item>
   </ion-list>
 </ion-content>
